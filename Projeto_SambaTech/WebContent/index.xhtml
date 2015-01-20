@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"  
+    xmlns:f="http://java.sun.com/jsf/core"  
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Samba Tech</title>
+</h:head>
+<h:body>
+ <div id="content" align="center">	
+	<h:form enctype="multipart/form-data">
+	  <p:growl id="messages" showDetail="true" />
+	 <p:panel header="Selecione abaixo o vídeo que deseja enviar:" style="width:50%">	 
+	    <p:fileUpload  fileUploadListener="#{uploadMB.doUpload}" label="Procurar..."  showButtons="false"  auto="true" allowTypes="/(\.|\/)(dv|wav|mp2|mpg|mp3|m4a|wma|m4v|264|wmv|aac|flv|avi|WAV|MP2|MPG|MP3|M4A|WMA|M4V|264|WMV|AAC|FLV|AVI)$/"
+	    invalidFileMessage="Não é um formato permitido"/>  
+	   	</p:panel>
+	   </h:form>	   
+ </div>	
+<p:messages  severity="info" escape="false" showDetail="true" 
+                 autoUpdate="true" closable="true"/>
+</h:body>
+</html>
