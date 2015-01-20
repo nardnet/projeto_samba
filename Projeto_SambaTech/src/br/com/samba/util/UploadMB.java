@@ -22,7 +22,7 @@ public class UploadMB {
 	public UploadMB() {
 	}
 
-	
+	//Teste
 	public void doUpload(FileUploadEvent fileUploadEvent) throws IOException, ServletException{
 		UploadedFile uploadedFile = fileUploadEvent.getFile();		
 		String fileName = uploadedFile.getFileName();
