@@ -34,8 +34,7 @@ public class UploadMB {
 				 
         String nomeCompleto = fileName + "." + extensaoArquivo;
         
-        AmazonS3Util asUtil = new AmazonS3Util();
-        
+        AmazonS3Util asUtil = new AmazonS3Util();        
          asUtil.enviarStream(nomeCompleto, uploadedFile.getInputstream());
         
         	
