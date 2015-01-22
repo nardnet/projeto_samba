@@ -7,9 +7,25 @@
     xmlns:p="http://primefaces.org/ui">
 <h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<script src="js/jquery-2.1.1.min.js"></script>	
 <title>Samba Tech</title>
 </h:head>
 <h:body>
+<p:growl id="growl" life="2000" />
+<p:messages  severity="info" escape="false" showDetail="true" 
+                 autoUpdate="true" closable="true"/>
+                 
+                 
+ <div id="content" align="center">
+    <p:commandLink id="ajax"  update="growl" action="#{videoMB.redirect}">
+        <h:outputText value="Visualizar videos" />
+    </p:commandLink>
+ </div>                 
+ <br></br>  
+ <br></br> 
+ <br></br> 
+ <br></br> 
+ <br></br>               
  <div id="content" align="center">	
 	<h:form enctype="multipart/form-data">
 	  <p:growl id="messages" showDetail="true" />
@@ -19,7 +35,5 @@
 	   	</p:panel>
 	   </h:form>	   
  </div>	
-<p:messages  severity="info" escape="false" showDetail="true" 
-                 autoUpdate="true" closable="true"/>
 </h:body>
 </html>

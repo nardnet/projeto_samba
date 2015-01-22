@@ -4,15 +4,18 @@ import java.io.IOException;
 import java.util.UUID;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.application.NavigationHandler;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.servlet.ServletException;
 
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 
 import br.com.samba.amazons3.AmazonS3Util;
+import br.com.samba.zenconder.ZencoderUtil;
 
 
 @ManagedBean(name="uploadMB")
@@ -21,6 +24,9 @@ public class UploadMB {
 
 	public UploadMB() {
 	}
+	
+	
+
 
 	//Teste
 	public void doUpload(FileUploadEvent fileUploadEvent) throws IOException, ServletException{
@@ -34,15 +40,17 @@ public class UploadMB {
 				 
         String nomeCompleto = fileName + "." + extensaoArquivo;
         
-        AmazonS3Util asUtil = new AmazonS3Util();        
-         asUtil.enviarStream(nomeCompleto, uploadedFile.getInputstream());
-        
-        	
+               
+         AmazonS3Util.enviarStream(nomeCompleto, uploadedFile.getInputstream());
+         ZencoderUtil.SolicitarConversao(fileName, nomeCompleto);
+         
+         
 		String infoAboutFile = "<br/> Arquivo recebido: <b>" +fileName +"</b><br/>"+ "Tamanho do Arquivo: <b>"+fileSizeUploaded+"</b>"
 		+"</b><br/>"+ "Extens�o do Arquivo: <b>"+extensaoArquivo+"</b>";
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		facesContext.addMessage(null, new FacesMessage("Sucesso", infoAboutFile));		
-		
+        // Redireciona o usuário para página de sucesso
+       
 	}
 	
 	

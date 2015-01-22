@@ -24,7 +24,7 @@ import com.amazonaws.services.s3.model.UploadPartRequest;
 public class AmazonS3Util {
 	
 	private static AmazonS3 s3;  
-    private final static String S3_BUCKETNAME="sambabucket";   
+    public final static String S3_BUCKETNAME="sambabucket";   
   
     static{  
     	
